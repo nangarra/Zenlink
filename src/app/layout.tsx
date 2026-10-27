@@ -27,8 +27,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(productionHost ? `https://${productionHost}` : "http://localhost:3000"),
   title,
   description,
-  openGraph: { title, description, images: ["/bg-qigong-lake.webp"] },
-  twitter: { card: "summary_large_image", title, description, images: ["/bg-qigong-lake.webp"] },
+  openGraph: { title, description, images: ["/bg-zenpod-poster.jpg"] },
+  twitter: { card: "summary_large_image", title, description, images: ["/bg-zenpod-poster.jpg"] },
 };
 
 export const viewport: Viewport = {
