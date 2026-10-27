@@ -1,0 +1,13 @@
+// Cloudflare Workers static-assets config: serves the static export in ./out.
+// Deploy with `npm run deploy`, or let Cloudflare build it from GitHub
+// (Workers & Pages → Create → Import a repository) with build command
+// `npm run build` and deploy command `npx wrangler deploy`.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "zenlink",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}

@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Unbounded, DM_Sans } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 // Same typefaces as zenpod.me, so the hop from here to the site feels seamless.
@@ -19,12 +18,13 @@ const dmSans = DM_Sans({
 const title = "Zen Pod — Links";
 const description = "Free Qigong flow, sessions and retreats from Zen Pod in Pattaya, Thailand.";
 
-// Absolute base for the share-card image. Vercel sets this to the project's
-// production domain; falls back to localhost for local builds.
-const productionHost = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+// Absolute base for the share-card image. Set SITE_URL to the live address
+// (e.g. https://links.zenpod.me) in Cloudflare's build settings; Cloudflare
+// Pages builds fall back to their own deployment URL.
+const siteUrl = process.env.SITE_URL || process.env.CF_PAGES_URL || "http://localhost:3000";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(productionHost ? `https://${productionHost}` : "http://localhost:3000"),
+  metadataBase: new URL(siteUrl),
   title,
   description,
   openGraph: { title, description, images: ["/bg-zenpod-poster.jpg"] },
@@ -40,7 +40,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" className={`${unbounded.variable} ${dmSans.variable}`}>
       <body>
         {children}
-        <Analytics />
       </body>
     </html>
   );

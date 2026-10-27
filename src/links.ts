@@ -1,8 +1,6 @@
 // The buttons on the page, top to bottom. To add, remove or reorder a link,
-// edit this list — nothing else needs to change.
-//
-// `id` is what shows up in Vercel Analytics when someone taps the button
-// (event "link_click"), so keep it short and stable.
+// edit this list — nothing else needs to change. `id` is the React key, so
+// keep each one unique.
 
 export type LinkItem = {
   id: string;
